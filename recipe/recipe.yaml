@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: figure-gate
-  version: "0.6.0"
+  version: "0.7.0"
   python_min: "3.11"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/f/figure-gate/figure_gate-${{ version }}.tar.gz
-  sha256: dd404271c004dc73c31120ad4cffb0e8a19af98acf807ccb5605453aee71c663
+  sha256: e4930904c3653c08318e11b6d74972621bba6103746043ea31c3e528edff7656
 
 build:
   # Three unnamespaced entries in site-packages, deliberately: the scripts are
