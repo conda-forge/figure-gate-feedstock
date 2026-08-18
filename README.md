@@ -21,10 +21,12 @@ labels that fall below a legible point size once the figure is scaled to
 its column width, clipped text, and Type 3 fonts, which IEEE PDF eXpress
 refuses at upload.
 
-Two scripts, check-palette and check-figure. check_palette.py imports
-nothing outside the standard library, and both are meant to be run in CI or
-copied into a project outright. Every gate has a test that proves it can
-fail.
+Two commands, check-palette and check-figure. An install exposes the
+modules as figure_gate.check_palette and figure_gate.check_figure; through
+0.6.0 they were loose modules at the root of site-packages. Either file is
+also meant to be copied into a project outright, and check_palette.py
+imports nothing outside the standard library. Every gate has a test that
+proves it can fail.
 
 Current build status
 ====================
@@ -57,31 +59,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `figure-gate` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install figure-gate
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install figure-gate
 ```
 
-It is possible to list all of the versions of `figure-gate` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add figure-gate
+# for installing globally
+pixi global install figure-gate
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `figure-gate` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search figure-gate --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search figure-gate --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search figure-gate --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -93,6 +137,8 @@ mamba repoquery whoneeds figure-gate --channel conda-forge
 # List dependencies of `figure-gate`:
 mamba repoquery depends figure-gate --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
